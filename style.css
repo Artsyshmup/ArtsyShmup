@@ -6,33 +6,4 @@ body {
 	font-family: Arial;
 	background: #FCE3B1;
 }
-ul.topNav  {
-	margin-left: 50px;
-	padding:0px;
-	width:auto;
-}
-#topNav li{
-	float:left;
-	display:inline-block;
-}
-#topNav li a{
-	float:left;
-	font-family:tahoma, arial;
-	font-size:11px;
-	color:#FFFFFF;
-	text-align:center;
-	line-height:35px;
-	display:inline-block;
-	text-decoration:none;
-	background:#A66F0D;
-	padding-left:12px;
-	padding-right:12px;
-	margin-top:5px;
-	border-right:1px dotted #FFFFFF;
-}
-#topNav li a:hover{
-	background:#FFFFFF;
-	color:#A66F0D;
-	text-decoration:none;
-	border-right:1px dotted #A66F0D;
-}
+
