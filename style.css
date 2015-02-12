@@ -7,6 +7,10 @@ body {
 	margin-bottom: 150px;
 	margin-right: 200px;
 	margin-left: 200px;
-
+	border-style: inset;
+	border-color: #006B24;
+}
+div{
+	background: #FFFFFF;
 }
 
