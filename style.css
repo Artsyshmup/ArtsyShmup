@@ -7,10 +7,12 @@ body {
 	margin-bottom: 150px;
 	margin-right: 200px;
 	margin-left: 200px;
-	border-style: inset;
-	border-color: #006B24;
 }
-div{
+div#header{
 	background: #FFFFFF;
+	margin-top: 100px;
+	margin-bottom: 150px;
+	margin-right: 50px;
+	margin-left: 50px;
 }
 
