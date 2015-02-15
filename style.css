@@ -10,6 +10,10 @@ body {
 }
 div#header{
 	background: #FFFFFF;
+	border-top: 100px;
+	border-bottom: 100px;
+	border-right: 50px;
+	border-left: 50px;
 	
 }
 
