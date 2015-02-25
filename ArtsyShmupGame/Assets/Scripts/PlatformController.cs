@@ -18,7 +18,9 @@ public class PlatformController : MonoBehaviour {
 	{
 		Vector2 newPosition = transform.position;
 		Debug.Log (transform.localScale.x);
-		newPosition.x += transform.localScale.x + GameObject.Find ("Player").GetComponent<PlayerController>().jumpHeight /3;
+		float jumpHeight = GameObject.Find ("Player").GetComponent<PlayerController> ().jumpHeight;
+		newPosition.x += transform.localScale.x +  jumpHeight/3;
+		newPosition.y += Random.Range (-jumpHeight/2, jumpHeight/4);
 		Debug.Log ("New position x: " + newPosition.x);
 		Instantiate (spawnedElement, newPosition, Quaternion.identity);
 	}
