@@ -11,31 +11,45 @@ public class PlayerPhysics : MonoBehaviour {
 
 	private BoxCollider2D playerCollider;
 	private Vector3 size;
-	private Vector3 center;
+
+	private float skin = .005f;
+	RaycastHit2D hit;
 	
 	void Awake()
 	{
 		this.playerCollider = GetComponent<BoxCollider2D> ();
 		this.size = this.playerCollider.size;
-		this.center = this.playerCollider.center;
 	}
 
 	public void Move(Vector2 moveTo)
 	{
-		RaycastHit2D hit;
-		
-		float x = transform.position.x + this.center.x;
-		float y = transform.position.y + this.center.y - this.size.y/2;
+		float componentY = moveTo.y;
+		float componentX = moveTo.x;
+
 		this.grounded = false;
-		// We create the ray to be used for the raycast: at the left, middle and finally right of the player object
-		Vector2 origin = new Vector2 (x, y);
-		hit = Physics2D.Raycast (origin, new Vector2 (0, -1), 1, collisionMask);
-		if (hit!=null) {
-			float distance = Vector2.Distance(origin, hit.point);
-			if(distance<0.1){
+
+		for (int i=0; i<3; i++) {
+			float direction = Mathf.Sign(componentY);
+			float x = (transform.position.x - this.size.x/2) + this.size.x/2 * i;
+			float y = transform.position.y + this.size.y/2 * direction;
+			Vector2 origin = new Vector2(x, y);
+			Vector2 dir = new Vector2(0, direction);
+			Debug.DrawRay(origin, dir);
+			hit = Physics2D.Raycast(origin, dir, Mathf.Abs(componentY), this.collisionMask);
+			if(hit.collider!=null){
+				float distance = Vector3.Distance(origin, hit.point);
+				if(distance>skin){
+					componentY = distance * direction + skin;
+				} else {
+					if(direction!=1){
+						componentY = 0;
+					}
+				}
 				grounded = true;
+				break;
 			}
 		}
-		transform.Translate (moveTo);
+
+		transform.Translate (new Vector2(componentX, componentY));
 	}
 }
