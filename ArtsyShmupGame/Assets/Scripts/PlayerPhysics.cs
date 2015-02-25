@@ -30,7 +30,7 @@ public class PlayerPhysics : MonoBehaviour {
 
 		for (int i=0; i<3; i++) {
 			float direction = Mathf.Sign(componentY);
-			float x = (transform.position.x - this.size.x/2) + this.size.x/2 * i;
+			float x = (transform.position.x - this.size.x/2) + this.size.x/3 * i;
 			float y = transform.position.y + this.size.y/2 * direction;
 			Vector2 origin = new Vector2(x, y);
 			Vector2 dir = new Vector2(0, direction);
