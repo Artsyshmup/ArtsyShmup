@@ -10,6 +10,10 @@ public class PlayerController : MonoBehaviour {
 	public float jumpHeight = 70;
 	public int health = 3;
 	public Text healthText;
+	public Image damageImage;
+	public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
+	private bool damaged = false;
+	public float flashSpeed = 5f;
 
 	private PlayerPhysics playerPhysics;
 	private Vector2 moveTo;
@@ -26,6 +30,16 @@ public class PlayerController : MonoBehaviour {
 
 		moveTo.x = horizontal * speed;
 
+		if(damaged)
+		{
+			damageImage.color = flashColour;
+		}
+		else
+		{
+			damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+		}
+		damaged = false;
+
 		if(playerPhysics.grounded){ //We'll jump
 			moveTo.y = 0;
 			float vertical = Input.GetAxisRaw("Vertical");
@@ -41,6 +55,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		this.health--;
 		healthText.text = "" + health;
+		this.damaged = true;
 		if (this.health == 0) { //Game Over
 
 		}
