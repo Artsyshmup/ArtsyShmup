@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(PlayerPhysics))]
 public class PlayerController : MonoBehaviour {
@@ -7,6 +8,8 @@ public class PlayerController : MonoBehaviour {
 	public float gravity = 20;
 	public float speed = 4;
 	public float jumpHeight = 70;
+	public int health = 3;
+	public Text healthText;
 
 	private PlayerPhysics playerPhysics;
 	private Vector2 moveTo;
@@ -14,6 +17,7 @@ public class PlayerController : MonoBehaviour {
 	// This function will be executed when it's loaded.
 	void Awake () {
 		this.playerPhysics = GetComponent<PlayerPhysics> ();
+		healthText.text = "" + health;
 	}
 	
 	// Update is called once per frame
@@ -31,5 +35,14 @@ public class PlayerController : MonoBehaviour {
 		}
 		moveTo.y -= this.gravity * Time.deltaTime; //We add the effects of gravity
 		playerPhysics.Move (moveTo * Time.deltaTime);
+	}
+
+	public void TakeDamage()
+	{
+		this.health--;
+		healthText.text = "" + health;
+		if (this.health == 0) { //Game Over
+
+		}
 	}
 }
