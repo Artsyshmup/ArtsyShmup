@@ -17,7 +17,6 @@ public class TriggerPlatformCollider : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag == "Player") {
-			Debug.Log ("SPAWN!");
 			platformController.SpawnNewPlatform();
 			Destroy (gameObject);
 		}

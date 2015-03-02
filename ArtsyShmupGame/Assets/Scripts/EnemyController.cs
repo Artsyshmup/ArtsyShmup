@@ -10,11 +10,13 @@ public class EnemyController : MonoBehaviour {
 	private bool canAttack = false;
 	private PlayerController playerController;
 	private float timer = 0;
+	private EnemySpawningController spawnController;
 
 	// Use this for initialization
 	void Awake () {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		playerController = player.gameObject.GetComponent<PlayerController> ();
+		spawnController = GameObject.Find ("Main Camera").GetComponent<EnemySpawningController> ();
 	}
 	
 	// Update is called once per frame
@@ -57,5 +59,6 @@ public class EnemyController : MonoBehaviour {
 	void Die()
 	{
 		Destroy (gameObject);
+		spawnController.enemiesAlive--;
 	}
 }
