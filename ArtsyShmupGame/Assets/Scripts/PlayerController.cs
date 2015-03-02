@@ -88,7 +88,7 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 
-	void Die()
+	public void Die()
 	{
 		shooting.enabled = false;
 		isAlive = false;
