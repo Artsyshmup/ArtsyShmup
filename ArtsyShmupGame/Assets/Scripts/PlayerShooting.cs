@@ -61,6 +61,10 @@ public class PlayerShooting : MonoBehaviour {
 		}
 		shootHit = Physics2D.Raycast (shootRay.origin, shootRay.direction, range, shootableMask);
 		if (shootHit.collider!=null) {
+			EnemyController enemyHit = shootHit.collider.GetComponent<EnemyController>();
+			if(enemyHit!=null){
+				enemyHit.TakeDamage();
+			}
 			gunLine.SetPosition (1, shootHit.point);
 		} else {
 			gunLine.SetPosition(1, shootRay.origin + shootRay.direction * range);

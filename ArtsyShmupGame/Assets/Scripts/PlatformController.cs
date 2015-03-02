@@ -23,7 +23,6 @@ public class PlatformController : MonoBehaviour {
 
 	IEnumerator DestroyOldPlatform()
 	{
-		Debug.Log("DESTROY OLD PLATFORM");
 		GameObject oldPlatform = GameObject.Find("Platform" + (this.platform_id-5));
 		oldPlatform.rigidbody2D.isKinematic = false;
 		yield return new WaitForSeconds(destroyDelay);

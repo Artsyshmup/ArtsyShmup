@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyController : MonoBehaviour {
 	public float speed = 3;
 	public float attackDelay = .5f;
+	public int enemeHealth = 3;
 
 	private Transform player;
 	private bool canAttack = false;
@@ -43,5 +44,18 @@ public class EnemyController : MonoBehaviour {
 		if (other.tag == "Player") {
 			canAttack = false;
 		}
+	}
+
+	public void TakeDamage()
+	{
+		this.enemeHealth--;
+		if (this.enemeHealth == 0) {
+			Die ();
+		}
+	}
+
+	void Die()
+	{
+		Destroy (gameObject);
 	}
 }
