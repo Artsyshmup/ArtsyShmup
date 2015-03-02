@@ -17,12 +17,14 @@ public class PlayerController : MonoBehaviour {
 	public float flashSpeed = 5f;
 
 	private PlayerPhysics playerPhysics;
+	private PlayerShooting shooting;
 	private Vector2 moveTo;
 
 	// This function will be executed when it's loaded.
 	void Awake () {
 		this.playerPhysics = GetComponent<PlayerPhysics> ();
 		healthText.text = "" + health;
+		shooting = GameObject.Find ("ShootingEnd").GetComponent<PlayerShooting> ();
 	}
 	
 	// Update is called once per frame
@@ -73,7 +75,7 @@ public class PlayerController : MonoBehaviour {
 		//We check that there was a hit
 		if (Physics.Raycast (camRay, out hit, camRayLength)) {
 			Vector2 point = hit.point;
-			Debug.Log("X: " + point.x + ". Y: " + point.y);
+			shooting.targetPoint = point;
 		}
 	}
 }
