@@ -5,18 +5,21 @@ public class EnemyController : MonoBehaviour {
 	public float speed = 3;
 	public float attackDelay = .5f;
 	public int enemeHealth = 3;
+	public int enemyValue = 10;
 
 	private Transform player;
 	private bool canAttack = false;
 	private PlayerController playerController;
 	private float timer = 0;
 	private EnemySpawningController spawnController;
+	private ScoreManager scoreManager;
 
 	// Use this for initialization
 	void Awake () {
 		player = GameObject.FindGameObjectWithTag("Player").transform;
 		playerController = player.gameObject.GetComponent<PlayerController> ();
 		spawnController = GameObject.Find ("Main Camera").GetComponent<EnemySpawningController> ();
+		scoreManager = GameObject.Find ("Main Camera").GetComponent<ScoreManager> ();
 	}
 	
 	// Update is called once per frame
@@ -60,5 +63,6 @@ public class EnemyController : MonoBehaviour {
 	{
 		Destroy (gameObject);
 		spawnController.enemiesAlive--;
+		scoreManager.AddScore (this.enemyValue);
 	}
 }
