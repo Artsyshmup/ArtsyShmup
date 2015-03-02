@@ -19,50 +19,59 @@ public class PlayerController : MonoBehaviour {
 	private PlayerPhysics playerPhysics;
 	private PlayerShooting shooting;
 	private Vector2 moveTo;
+	private bool isAlive = true;
+	private Image gameOverImage;
+	private Text gameOverText;
 
 	// This function will be executed when it's loaded.
 	void Awake () {
 		this.playerPhysics = GetComponent<PlayerPhysics> ();
 		healthText.text = "" + health;
 		shooting = GameObject.Find ("ShootingEnd").GetComponent<PlayerShooting> ();
+		gameOverImage = GameObject.Find ("GameOverImage").GetComponent<Image>();
+		gameOverText = GameObject.Find ("GameOverText").GetComponent<Text>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		float horizontal = Input.GetAxisRaw("Horizontal");
-
-		moveTo.x = horizontal * speed;
-
-		if(damaged)
-		{
-			damageImage.color = flashColour;
-		}
-		else
-		{
-			damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
-		}
-		damaged = false;
-
-		if(playerPhysics.grounded){ //We'll jump
-			moveTo.y = 0;
-			float vertical = Input.GetAxisRaw("Vertical");
-			if(vertical>0){
-				moveTo.y = jumpHeight;
+		if (isAlive) {
+			float horizontal = Input.GetAxisRaw("Horizontal");
+			
+			moveTo.x = horizontal * speed;
+			
+			if(damaged)
+			{
+				damageImage.color = flashColour;
 			}
+			else
+			{
+				damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
+			}
+			damaged = false;
+			
+			if(playerPhysics.grounded){ //We'll jump
+				moveTo.y = 0;
+				float vertical = Input.GetAxisRaw("Vertical");
+				if(vertical>0){
+					moveTo.y = jumpHeight;
+				}
+			}
+			moveTo.y -= this.gravity * Time.deltaTime; //We add the effects of gravity
+			playerPhysics.Move (moveTo * Time.deltaTime);
+			
+			Turning ();
 		}
-		moveTo.y -= this.gravity * Time.deltaTime; //We add the effects of gravity
-		playerPhysics.Move (moveTo * Time.deltaTime);
-
-		Turning ();
 	}
 
 	public void TakeDamage()
 	{
-		this.health--;
-		healthText.text = "" + health;
-		this.damaged = true;
-		if (this.health == 0) { //Game Over
-
+		if (isAlive) {
+			this.health--;
+			healthText.text = "" + health;
+			this.damaged = true;
+			if (this.health == 0) { //Game Over
+				Die ();
+			}
 		}
 	}
 
@@ -77,5 +86,14 @@ public class PlayerController : MonoBehaviour {
 			Vector2 point = hit.point;
 			shooting.targetPoint = point;
 		}
+	}
+
+	void Die()
+	{
+		shooting.enabled = false;
+		isAlive = false;
+
+		gameOverImage.color = new Color(116/255f, 116/255f, 116/255f, 1);
+		gameOverText.color = new Color (0, 0, 0, 1);
 	}
 }
