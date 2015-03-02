@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour {
 	public Image damageImage;
 	public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
 	private bool damaged = false;
+	private float camRayLength = 100f;
 	public float flashSpeed = 5f;
 
 	private PlayerPhysics playerPhysics;
@@ -49,6 +50,8 @@ public class PlayerController : MonoBehaviour {
 		}
 		moveTo.y -= this.gravity * Time.deltaTime; //We add the effects of gravity
 		playerPhysics.Move (moveTo * Time.deltaTime);
+
+		Turning ();
 	}
 
 	public void TakeDamage()
@@ -58,6 +61,19 @@ public class PlayerController : MonoBehaviour {
 		this.damaged = true;
 		if (this.health == 0) { //Game Over
 
+		}
+	}
+
+	void Turning()
+	{
+		//This will get the position of the mouse
+		Ray camRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+		RaycastHit hit;
+
+		//We check that there was a hit
+		if (Physics.Raycast (camRay, out hit, camRayLength)) {
+			Vector2 point = hit.point;
+			Debug.Log("X: " + point.x + ". Y: " + point.y);
 		}
 	}
 }
