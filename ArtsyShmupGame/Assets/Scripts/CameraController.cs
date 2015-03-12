@@ -6,6 +6,8 @@ public class CameraController : MonoBehaviour {
 	public float horizontalSpeed = 2f;
 	public float verticalSpeed = 2f;
 	public float smoothing = 5;
+	public float mouse_x_offset = 1f;
+	public float mouse_y_offset = 1f;
 	public Transform target;
 	private Vector3 offset;
 
@@ -24,8 +26,8 @@ public class CameraController : MonoBehaviour {
 		Vector2 targetCameraPosition = target.position + offset;
 		//We check that there was a hit
 		if (Physics.Raycast (camRay, out hit, camRayLength)) {//The mouse was in the screen and we have the coordinates
-			float horizontal = (hit.point.x > transform.position.x)? 1 : (hit.point.x < transform.position.x) ? -1 : 0;
-			float vertical = (hit.point.y > transform.position.y) ? 1 : (hit.point.y < transform.position.y) ? -1 : 0;
+			float horizontal = (hit.point.x > (transform.position.x + mouse_x_offset))? 1 : (hit.point.x < (transform.position.x - mouse_x_offset)) ? -1 : 0;
+			float vertical = (hit.point.y > (transform.position.y + mouse_y_offset)) ? 1 : (hit.point.y < (transform.position.y - mouse_y_offset)) ? -1 : 0;
 			Vector2 movement = new Vector2(horizontal * horizontalSpeed, vertical * verticalSpeed);
 			targetCameraPosition += movement;
 		}
