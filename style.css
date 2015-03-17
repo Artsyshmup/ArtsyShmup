@@ -15,9 +15,8 @@ h1, h2, h3 {
     text-align: center;
 }
 .content {
-    padding-right: 50px;
-    padding-left: 50px;
-
+    padding-right: 25px;
+    padding-left: 25px;
 }
 .masthead-nav > li {
     display: inline-block;
