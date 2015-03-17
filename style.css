@@ -6,10 +6,18 @@ body {
 	margin-top: 100px;
 	margin-bottom: 150px;
 	margin-right: 200px;
-	margin-left: 200px;
+	margin-left: 200px
 }
 div#header{
 	background: #FFFFFF;
+}
+h1, h2, h3 {
+    text-align: center;
+}
+.content {
+    padding-right: 50px;
+    padding-left: 50px;
+
 }
 .masthead-nav > li {
     display: inline-block;
