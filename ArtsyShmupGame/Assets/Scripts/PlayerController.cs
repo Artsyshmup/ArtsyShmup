@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour {
 	// Public variable to control the speed of the player
 	public float gravity = 20;
 	public float speed = 4;
+	public float initialSpeed = 4;
+	public float maxSpeed = 10;
+	public float acceleration = 1;
 	public float jumpHeight = 70;
 	public int health = 3;
 	public Text healthText;
@@ -36,7 +39,15 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		if (isAlive) {
 			float horizontal = Input.GetAxisRaw("Horizontal");
-			
+			if(horizontal!=0){ //User is pressing a key to move the player. Acceleration
+				if(speed<maxSpeed){
+					speed += acceleration * Time.deltaTime;
+				} else {
+					speed = maxSpeed;
+				}
+			} else {
+				speed = initialSpeed;
+			}
 			moveTo.x = horizontal * speed;
 			
 			if(damaged)
