@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour {
 	private PlayerPhysics playerPhysics;
 	private PlayerShooting shooting;
 	private Vector2 moveTo;
-	private bool isAlive = true;
+	public bool isAlive = true;
 	private Image gameOverImage;
 	private Text gameOverText;
 

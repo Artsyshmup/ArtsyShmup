@@ -24,10 +24,13 @@ public class TriggerPlatformCollider : MonoBehaviour {
 	void OnTriggerEnter2D(Collider2D other)
 	{
 		if (other.tag == "Player") {
-			if(parent_id == PlatformController.platformsPerLevel){
+			if(parent_id == PlatformController.platformsPerLevel){ //Time to go back
 				for(int i=PlatformController.oldest_platform_id; i<parent_id; i++){
 					platformController.DestroyOldPlatform(i);
 				}
+			}
+			if(parent_id == 2*PlatformController.platformsPerLevel){ //Reached the end of the level
+				Camera.main.GetComponent<LevelManager>().winLevel();
 			}
 			platformController.SpawnNewPlatform(gameObject.tag=="PlatformForward");
 			Destroy (gameObject);
