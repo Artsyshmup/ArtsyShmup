@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour {
 
 	public void TakeDamage()
 	{
+		Debug.Log ("Player was damaged");
 		if (isAlive) {
 			this.health--;
 			healthText.text = "" + health;
@@ -105,5 +106,6 @@ public class PlayerController : MonoBehaviour {
 
 		gameOverImage.color = new Color(116/255f, 116/255f, 116/255f, 1);
 		gameOverText.color = new Color (0, 0, 0, 1);
+		Camera.main.GetComponent<LevelManager>().gameOver = true;
 	}
 }
