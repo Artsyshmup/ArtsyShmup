@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour {
 	public bool isAlive = true;
 	private Image gameOverImage;
 	private Text gameOverText;
+	private Text replayText;
 
 	[HideInInspector]
 	public List<GameObject> pickups = new List<GameObject>();
@@ -47,6 +48,7 @@ public class PlayerController : MonoBehaviour {
 		shooting = GameObject.Find ("ShootingEnd").GetComponent<PlayerShooting> ();
 		gameOverImage = GameObject.Find ("GameOverImage").GetComponent<Image>();
 		gameOverText = GameObject.Find ("GameOverText").GetComponent<Text>();
+		replayText = GameObject.Find ("ReplayText").GetComponent<Text> ();
 	}
 	
 	// Update is called once per frame
@@ -120,6 +122,7 @@ public class PlayerController : MonoBehaviour {
 
 		gameOverImage.color = new Color(116/255f, 116/255f, 116/255f, 1);
 		gameOverText.color = new Color (0, 0, 0, 1);
+		replayText.color = new Color (0, 0, 0, 1);
 		Camera.main.GetComponent<LevelManager>().gameOver = true;
 	}
 }

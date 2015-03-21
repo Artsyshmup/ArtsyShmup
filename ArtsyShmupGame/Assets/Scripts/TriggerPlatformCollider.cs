@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 public class TriggerPlatformCollider : MonoBehaviour {
@@ -32,7 +32,7 @@ public class TriggerPlatformCollider : MonoBehaviour {
 				}
 			}
 			if(parent_id == 2*PlatformController.platformsPerLevel){ //Reached the end of the level
-				Camera.main.GetComponent<LevelManager>().winLevel();
+				Camera.main.GetComponent<LevelManager>().FinishLevel();
 			}
 			GameObject newPlatform = 
 				(GameObject)platformController.SpawnNewPlatform(gameObject.tag=="PlatformForward");
