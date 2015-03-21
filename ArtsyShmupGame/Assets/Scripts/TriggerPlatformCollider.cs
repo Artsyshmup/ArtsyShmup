@@ -2,6 +2,8 @@
 using System.Collections;
 
 public class TriggerPlatformCollider : MonoBehaviour {
+	public GameObject treasure;
+
 	private PlatformController platformController;
 	private BoxCollider2D collider;
 	private int parent_id;
@@ -32,7 +34,17 @@ public class TriggerPlatformCollider : MonoBehaviour {
 			if(parent_id == 2*PlatformController.platformsPerLevel){ //Reached the end of the level
 				Camera.main.GetComponent<LevelManager>().winLevel();
 			}
-			platformController.SpawnNewPlatform(gameObject.tag=="PlatformForward");
+			GameObject newPlatform = 
+				(GameObject)platformController.SpawnNewPlatform(gameObject.tag=="PlatformForward");
+			if (parent_id == PlatformController.platformsPerLevel - 1){ 
+				//We spawned the last platform and the treasure must be instantiated
+				Vector2 position = newPlatform.transform.position;
+				position.y += 2.5f;
+				Object newTreasure = 
+					Instantiate (treasure, position, Quaternion.identity);
+				GameObject gameTreasure = (GameObject)newTreasure;
+				gameTreasure.GetComponent<TreasureController>().placeTreasure();
+			}
 			Destroy (gameObject);
 		}
 	}

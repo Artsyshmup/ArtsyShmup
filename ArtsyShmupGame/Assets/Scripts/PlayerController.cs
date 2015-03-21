@@ -75,7 +75,6 @@ public class PlayerController : MonoBehaviour {
 
 	public void TakeDamage()
 	{
-		Debug.Log ("Player was damaged");
 		if (isAlive) {
 			this.health--;
 			healthText.text = "" + health;

@@ -32,7 +32,7 @@ public class PlatformController : MonoBehaviour {
 		PlatformController.oldest_platform_id = platformID + 1;
 	}
 
-	public void SpawnNewPlatform(bool forward)
+	public Object SpawnNewPlatform(bool forward)
 	{
 		Vector2 newPosition = transform.position;
 		float jumpHeight = GameObject.Find ("Player").GetComponent<PlayerController> ().jumpHeight;
@@ -42,6 +42,6 @@ public class PlatformController : MonoBehaviour {
 			newPosition.x -= (transform.localScale.x +  jumpHeight/3);
 		}
 		newPosition.y += Random.Range (-jumpHeight/4, jumpHeight/4);
-		Instantiate (spawnedElement, newPosition, Quaternion.identity);
+		return Instantiate (spawnedElement, newPosition, Quaternion.identity);
 	}
 }
