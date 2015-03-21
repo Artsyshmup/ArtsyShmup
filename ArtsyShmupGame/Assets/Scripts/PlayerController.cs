@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(PlayerPhysics))]
 public class PlayerController : MonoBehaviour {
@@ -24,6 +25,20 @@ public class PlayerController : MonoBehaviour {
 	public bool isAlive = true;
 	private Image gameOverImage;
 	private Text gameOverText;
+
+	[HideInInspector]
+	public List<GameObject> pickups = new List<GameObject>();
+	
+	public void AddToPickups(GameObject gObject){
+		if (gObject == null) {
+			throw new MissingComponentException("Game object to add to the pickups list not specified");
+		}
+		pickups.Add (gObject);
+	}
+	
+	public int GetPickupsSize(){
+		return pickups.Count;
+	}
 
 	// This function will be executed when it's loaded.
 	void Awake () {

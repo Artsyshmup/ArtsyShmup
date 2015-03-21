@@ -42,4 +42,12 @@ public class TreasureController : MonoBehaviour {
 			floatingUp = true;
 		}
 	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.tag == "Player") {
+			other.gameObject.GetComponent<PlayerController>().AddToPickups(gameObject);
+			Destroy(gameObject);
+		}
+	}
 }
