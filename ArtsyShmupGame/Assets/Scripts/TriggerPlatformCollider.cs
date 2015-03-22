@@ -40,6 +40,7 @@ public class TriggerPlatformCollider : MonoBehaviour {
 				//We spawned the last platform and the treasure must be instantiated
 				Vector2 position = newPlatform.transform.position;
 				position.y += 2.5f;
+				position.x += 1.5f;
 				Object newTreasure = 
 					Instantiate (treasure, position, Quaternion.identity);
 				GameObject gameTreasure = (GameObject)newTreasure;

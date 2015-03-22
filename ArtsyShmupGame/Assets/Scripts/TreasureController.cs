@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class TreasureController : MonoBehaviour {
 	private bool floatingUp = true;
@@ -7,6 +8,16 @@ public class TreasureController : MonoBehaviour {
 	private float minUp;
 	private float deltaUp = 1f;
 	private float speed = 1f;
+
+	private float messageDelay = 4f;
+	private Image messageBackground;
+	private Text messageText;
+
+	void Awake()
+	{
+		messageBackground = GameObject.Find ("InfoMessage").GetComponent<Image> ();
+		messageText = GameObject.Find ("ObjectRecoveredMessage").GetComponent<Text> ();
+	}
 
 	public void placeTreasure()
 	{
@@ -48,6 +59,7 @@ public class TreasureController : MonoBehaviour {
 		if (other.tag == "Player") {
 			other.gameObject.GetComponent<PlayerController>().AddToPickups(gameObject);
 			Destroy(gameObject);
+			Camera.main.GetComponent<InfoMessageManager>().displayMessage();
 		}
 	}
 }
