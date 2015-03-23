@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(PlayerPhysics))]
 public class PlayerController : MonoBehaviour {
 	// Public variable to control the speed of the player
 	public float gravity = 20;
 	public float speed = 4;
+	public float initialSpeed = 4;
+	public float maxSpeed = 10;
 	public float jumpHeight = 70;
 	public int health = 3;
 	public Text healthText;
@@ -19,9 +22,24 @@ public class PlayerController : MonoBehaviour {
 	private PlayerPhysics playerPhysics;
 	private PlayerShooting shooting;
 	private Vector2 moveTo;
-	private bool isAlive = true;
+	public bool isAlive = true;
 	private Image gameOverImage;
 	private Text gameOverText;
+	private Text replayText;
+
+	[HideInInspector]
+	public List<GameObject> pickups = new List<GameObject>();
+	
+	public void AddToPickups(GameObject gObject){
+		if (gObject == null) {
+			throw new MissingComponentException("Game object to add to the pickups list not specified");
+		}
+		pickups.Add (gObject);
+	}
+	
+	public int GetPickupsSize(){
+		return pickups.Count;
+	}
 
 	// This function will be executed when it's loaded.
 	void Awake () {
@@ -30,13 +48,22 @@ public class PlayerController : MonoBehaviour {
 		shooting = GameObject.Find ("ShootingEnd").GetComponent<PlayerShooting> ();
 		gameOverImage = GameObject.Find ("GameOverImage").GetComponent<Image>();
 		gameOverText = GameObject.Find ("GameOverText").GetComponent<Text>();
+		replayText = GameObject.Find ("ReplayText").GetComponent<Text> ();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (isAlive) {
 			float horizontal = Input.GetAxisRaw("Horizontal");
-			
+			if(horizontal!=0){ //User is pressing a key to move the player. Acceleration
+				if(speed<maxSpeed){
+					speed += (rigidbody2D.mass * speed) * Time.deltaTime;
+				} else {
+					speed = maxSpeed;
+				}
+			} else {
+				speed = initialSpeed;
+			}
 			moveTo.x = horizontal * speed;
 			
 			if(damaged)
@@ -95,5 +122,7 @@ public class PlayerController : MonoBehaviour {
 
 		gameOverImage.color = new Color(116/255f, 116/255f, 116/255f, 1);
 		gameOverText.color = new Color (0, 0, 0, 1);
+		replayText.color = new Color (0, 0, 0, 1);
+		Camera.main.GetComponent<LevelManager>().gameOver = true;
 	}
 }
