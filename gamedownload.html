@@ -35,7 +35,33 @@
 		    We will give complete installation requirements and instructions.
 		    Of course, providing a simple executable is our primary goal.
 		</p>
-          </div>
+		<hr/>
+		<article>
+			<h3>ArtsyShmup version 0 (03/16/2015)</h3>
+			<p>This first version contains the state of the game as of 03/16/2015. In this first version, the player can move at a constant speed and jump from
+			one platform to the next one. Players (red square) can shoot enemies (green squares). When an enemy dies (after 3 shots), the player earns 10 points.
+			The player has 3 lives and can be harmed if the enemies get close enough. This first level will spawn new platforms infinitely.</p>
+			<p>ArtsyShmup v0 can be accessed <a href="http://cs.unc.edu/~raulestr/gamedev/ArtsyShmup/ArtsyShmup_v0/" target="_blank">HERE</a></p>
+		</article>
+		<hr/>
+		<article>
+			<h3>ArtsyShmup version 1 (03/23/2015)</h3>
+			<p><b>Improvements over the previous version</b>: In this version, acceleration was added to the movement of the player. The player will start moving at a 
+			normal speed and will reach a maximum speed. Acceleration uses the formula: acceleration = mass of object * speed</p>
+			<p>The camera will also move a little as the player moves the mouse around the screen. This can help focus on a zone a little further away at the top, 
+			top-right, right, bottom-right, bottom, bottom-left, left or top-left.</p>
+			<p>The first level is now finite: After a specified number (right now is 20) of platforms, the object that must be recovered by the player will be instantiated
+			 floating on top of the last platform. Then, platforms will be spawned backwards so that the player can go back to the beginning. This way we have the two
+			  parts of the level specified in the design document. When the player catches the object, the game will be paused for 2.5 seconds and will show a message to the
+			   player informing him/her that he/she must go back to the beginning with the new object.</p>
+			<p>The game will check if the player finishes with the object or not: if the player goes back without the object, the player will lose. If they go back with 
+			the object, the player will have passed that level.</p>
+			<p>When the player loses, the game over message will say "Press 'R' to restart", so the player can just press R and restart instead of refreshing or restarting 
+			the application.</p>
+			<p>ArtsyShmup v1 can be accessed <a href="http://cs.unc.edu/~raulestr/gamedev/ArtsyShmup/ArtsyShmup_v1/" target="_blank">HERE</a></p>
+		</article>
+		
+    </div>
   </div>
       <hr>
   </div>
