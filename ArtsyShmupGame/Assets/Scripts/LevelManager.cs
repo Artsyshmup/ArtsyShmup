@@ -72,6 +72,8 @@ public class LevelManager : MonoBehaviour {
 		if (gameOver) {
 			if (Input.GetKeyDown (KeyCode.R)) {
 				PlatformController.total_platform_id = 0;
+				Camera.main.GetComponent<ScoreManager>().Reset();
+				GameObject.Find("Player").GetComponent<PlayerController>().ResetHealth();
 				Application.LoadLevel(Application.loadedLevel);
 			}
 		}

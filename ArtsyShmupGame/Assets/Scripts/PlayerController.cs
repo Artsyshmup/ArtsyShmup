@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour {
 	public float initialSpeed = 4;
 	public float maxSpeed = 10;
 	public float jumpHeight = 70;
-	public int health = 3;
+	public static int HEALTH = 3;
 	public Text healthText;
 	public Image damageImage;
 	public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour {
 	// This function will be executed when it's loaded.
 	void Awake () {
 		this.playerPhysics = GetComponent<PlayerPhysics> ();
-		healthText.text = "" + health;
+		healthText.text = "" + HEALTH;
 		shooting = GameObject.Find ("ShootingEnd").GetComponent<PlayerShooting> ();
 		gameOverImage = GameObject.Find ("GameOverImage").GetComponent<Image>();
 		gameOverText = GameObject.Find ("GameOverText").GetComponent<Text>();
@@ -93,10 +93,10 @@ public class PlayerController : MonoBehaviour {
 	public void TakeDamage()
 	{
 		if (isAlive) {
-			this.health--;
-			healthText.text = "" + health;
+			HEALTH--;
+			healthText.text = "" + HEALTH;
 			this.damaged = true;
-			if (this.health == 0) { //Game Over
+			if (HEALTH == 0) { //Game Over
 				Die ();
 			}
 		}
@@ -124,5 +124,10 @@ public class PlayerController : MonoBehaviour {
 		gameOverText.color = new Color (0, 0, 0, 1);
 		replayText.color = new Color (0, 0, 0, 1);
 		Camera.main.GetComponent<LevelManager>().gameOver = true;
+	}
+
+	public void ResetHealth()
+	{
+		HEALTH = 3;
 	}
 }
