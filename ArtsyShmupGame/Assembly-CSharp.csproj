@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\PlayerFallManager.cs" />
      <Compile Include="Assets\Scripts\PlayerPhysics.cs" />
      <Compile Include="Assets\Scripts\PlayerShooting.cs" />
+     <Compile Include="Assets\Scripts\PortalCollider.cs" />
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\TreasureController.cs" />
      <Compile Include="Assets\Scripts\TriggerPlatformCollider.cs" />

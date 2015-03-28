@@ -32,9 +32,6 @@ public class TriggerPlatformCollider : MonoBehaviour {
 					platformController.DestroyOldPlatform(i);
 				}
 			}
-			if(parent_id == 2*PlatformController.platformsPerLevel){ //Reached the end of the level
-				Camera.main.GetComponent<LevelManager>().FinishLevel();
-			}
 			GameObject newPlatform = 
 				(GameObject)platformController.SpawnNewPlatform(gameObject.tag=="PlatformForward");
 			if (parent_id == 2*PlatformController.platformsPerLevel-1){
@@ -53,7 +50,7 @@ public class TriggerPlatformCollider : MonoBehaviour {
 			else if (parent_id == 2*PlatformController.platformsPerLevel - 1){ 
 				//We spawned the last platform and the portal or cave to finish the level must be instantiated
 				Vector3 position = newPlatform.transform.position;
-				position.y += 2.5f;
+				position.y += 2f;
 				position.z = 1f;
 				Instantiate (portal, position, Quaternion.identity);
 			}
