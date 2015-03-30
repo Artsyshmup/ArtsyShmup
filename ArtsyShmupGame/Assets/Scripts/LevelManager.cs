@@ -53,7 +53,11 @@ public class LevelManager : MonoBehaviour {
 
 	private IEnumerator WinLevel(){
 		levelPassedImage.color = new Color (141 / 255f, 151 / 255f, 255 / 255f, 1f);
-		levelPassedText.text = "You've passed level " + LevelManager.LEVEL++;
+		if (LEVEL == 6) { //Player won the game
+			levelPassedText.text = "You've completed the game";
+		} else { //Passed the current level, but still hasn't won the game
+			levelPassedText.text = "You've passed level " + LevelManager.LEVEL;
+		}
 		levelPassedText.color = new Color (0f, 0f, 0f, 1f);
 		Time.timeScale = 0f;
 		float pauseEndTime = Time.realtimeSinceStartup + messageDelay;
@@ -61,12 +65,14 @@ public class LevelManager : MonoBehaviour {
 		{
 			yield return 0;
 		}
-		Time.timeScale = 1;
-		levelPassedImage.color = new Color (141 / 255f, 151 / 255f, 255 / 255f, 0f);
-		levelPassedText.text = "You've passed level " + LevelManager.LEVEL;
-		levelPassedText.color = new Color (0f, 0f, 0f, 0f);
-		PlatformController.total_platform_id = 0;
-		Application.LoadLevel(Application.loadedLevel);
+		if (LEVEL != 6) {
+			Time.timeScale = 1;
+			LEVEL++;
+			levelPassedImage.color = new Color (141 / 255f, 151 / 255f, 255 / 255f, 0f);
+			levelPassedText.color = new Color (0f, 0f, 0f, 0f);
+			PlatformController.total_platform_id = 0;
+			Application.LoadLevel(Application.loadedLevel);
+		}
 	}
 
 	private void LoseLevel(){
