@@ -4,13 +4,12 @@ using System.Collections;
 public class EnemyHealth : MonoBehaviour {
 	public int enemeHealth = 3;
 	public int enemyValue = 10;
-
-	private EnemySpawningController spawnController;
+	public GameObject enemy;
+	
 	private ScoreManager scoreManager;
 
 	void Awake()
 	{
-		spawnController = GameObject.Find ("Main Camera").GetComponent<EnemySpawningController> ();
 		scoreManager = GameObject.Find ("Main Camera").GetComponent<ScoreManager> ();
 	}
 
@@ -24,6 +23,11 @@ public class EnemyHealth : MonoBehaviour {
 
 	void Die()
 	{
+		EnemySpawningController spawnController = null;
+		switch (enemy.tag) {
+		case "NormalEnemy": spawnController = Camera.main.GetComponent<NormalEnemySpawner> (); break;
+		case "ShootingEnemy": spawnController = Camera.main.GetComponent<ShootingEnemySpawner> (); break;
+		}
 		Destroy (gameObject);
 		spawnController.enemiesAlive--;
 		scoreManager.AddScore (this.enemyValue);
