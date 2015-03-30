@@ -10,13 +10,11 @@ public abstract class EnemySpawningController : MonoBehaviour {
 	[HideInInspector]
 	public int enemiesAlive = 0;
 	private float timer = 0f;
-	private int level;
 	private int radius;
 
 	protected void setProperties(GameObject iEnemyPrefab, int iRadius)
 	{
 		player = GameObject.Find ("Player").transform;
-		this.level = Camera.main.GetComponent<LevelManager> ().getLevel ();
 		this.enemyPrefab = iEnemyPrefab;
 		this.radius = iRadius;
 	}

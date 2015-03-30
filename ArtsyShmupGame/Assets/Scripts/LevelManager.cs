@@ -28,6 +28,12 @@ public class LevelManager : MonoBehaviour {
 			Destroy (gameObject);
 		}
 		gameOver = false;
+
+		if (LEVEL > 1) {
+			GetComponent<ShootingEnemySpawner>().enabled = true;
+		} else {
+			GetComponent<ShootingEnemySpawner>().enabled = false;
+		}
 	}
 
 	public void FinishLevel()
