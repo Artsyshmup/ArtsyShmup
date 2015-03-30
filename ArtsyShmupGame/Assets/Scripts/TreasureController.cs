@@ -9,16 +9,6 @@ public class TreasureController : MonoBehaviour {
 	private float deltaUp = 1f;
 	private float speed = 1f;
 
-	private float messageDelay = 4f;
-	private Image messageBackground;
-	private Text messageText;
-
-	void Awake()
-	{
-		messageBackground = GameObject.Find ("InfoMessage").GetComponent<Image> ();
-		messageText = GameObject.Find ("ObjectRecoveredMessage").GetComponent<Text> ();
-	}
-
 	public void placeTreasure()
 	{
 		maxUp = transform.position.y + deltaUp;
