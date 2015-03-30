@@ -61,7 +61,7 @@ public class PlayerShooting : MonoBehaviour {
 		}
 		shootHit = Physics2D.Raycast (shootRay.origin, shootRay.direction, range, shootableMask);
 		if (shootHit.collider!=null) {
-			EnemyController enemyHit = shootHit.collider.GetComponent<EnemyController>();
+			EnemyHealth enemyHit = shootHit.collider.GetComponent<EnemyHealth>();
 			if(enemyHit!=null){
 				enemyHit.TakeDamage();
 			}
