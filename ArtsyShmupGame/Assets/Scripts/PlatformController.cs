@@ -3,6 +3,7 @@ using System.Collections;
 
 public class PlatformController : MonoBehaviour {
 	public GameObject spawnedElement;
+	public GameObject oldTrigger;
 	public int destroyDelay = 3;
 	
 	[HideInInspector]
@@ -32,7 +33,7 @@ public class PlatformController : MonoBehaviour {
 		PlatformController.oldest_platform_id = platformID + 1;
 	}
 
-	public Object SpawnNewPlatform(bool forward)
+	public Object SpawnNewPlatform(bool forward, float oldJumpHeight)
 	{
 		Vector2 newPosition = transform.position;
 		float jumpHeight = GameObject.Find ("Player").GetComponent<PlayerController> ().jumpHeight;
@@ -41,7 +42,9 @@ public class PlatformController : MonoBehaviour {
 		} else {
 			newPosition.x -= (transform.localScale.x +  jumpHeight/3);
 		}
-		newPosition.y += Random.Range (-jumpHeight/4, jumpHeight/4);
-		return Instantiate (spawnedElement, newPosition, Quaternion.identity);
+		newPosition.y += Random.Range (-jumpHeight/5, jumpHeight/5);
+		GameObject newPlatform = Instantiate (spawnedElement, newPosition, Quaternion.identity) as GameObject;
+		newPlatform.GetComponentInChildren<PreviousJumpManager> ().setJump (oldJumpHeight);
+		return newPlatform;
 	}
 }

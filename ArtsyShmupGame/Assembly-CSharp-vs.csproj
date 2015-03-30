@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\PlayerShooting.cs" />
      <Compile Include="Assets\Scripts\PortalController.cs" />
      <Compile Include="Assets\Scripts\PortalStopCamera.cs" />
+     <Compile Include="Assets\Scripts\PreviousJumpManager.cs" />
      <Compile Include="Assets\Scripts\ScoreManager.cs" />
      <Compile Include="Assets\Scripts\ShootingEnemySpawner.cs" />
      <Compile Include="Assets\Scripts\TreasureController.cs" />
