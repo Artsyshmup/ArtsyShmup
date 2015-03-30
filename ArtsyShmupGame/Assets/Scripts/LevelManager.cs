@@ -15,6 +15,11 @@ public class LevelManager : MonoBehaviour {
 	public Text gameOverText;
 	public Text replayText;
 
+	public int getLevel()
+	{
+		return LEVEL;
+	}
+
 	void Awake()
 	{
 		if (instance == null) {
