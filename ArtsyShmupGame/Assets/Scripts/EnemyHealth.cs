@@ -21,7 +21,7 @@ public class EnemyHealth : MonoBehaviour {
 		}
 	}
 
-	void Die()
+	public void Die()
 	{
 		EnemySpawningController spawnController = null;
 		switch (enemy.tag) {

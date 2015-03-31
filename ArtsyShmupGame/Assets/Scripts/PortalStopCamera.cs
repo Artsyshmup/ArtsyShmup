@@ -4,8 +4,8 @@ using System.Collections;
 public class PortalStopCamera : MonoBehaviour {
 	
 	// Update is called once per frame
-	void Update () {
-		if (renderer.isVisible) {
+	void OnTriggerEnter2D (Collider2D other) {
+		if (other.tag == "Player") {
 			Camera.main.GetComponent<CameraController>().disablePointerFeature();
 		}
 	}

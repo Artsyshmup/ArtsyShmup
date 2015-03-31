@@ -32,7 +32,6 @@ public class TriggerPlatformCollider : MonoBehaviour {
 	{
 		if (other.tag == "Player") {
 			GameObject.Find ("Player").GetComponent<PlayerController>().jumpHeight = jumpHeight;
-			Debug.Log(GameObject.Find ("Player").GetComponent<PlayerController>().jumpHeight);
 			if(!spawned){
 				spawned = true;
 				if(parent_id == PlatformController.platformsPerLevel){ //Time to go back

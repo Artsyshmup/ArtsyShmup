@@ -32,7 +32,6 @@ public class PreviousJumpManager : MonoBehaviour {
 	{
 		if (other.tag == "Player") {
 			GameObject.Find ("Player").GetComponent<PlayerController>().jumpHeight = jumpHeight;
-			Debug.Log(GameObject.Find ("Player").GetComponent<PlayerController>().jumpHeight);
 		}
 	}
 }
