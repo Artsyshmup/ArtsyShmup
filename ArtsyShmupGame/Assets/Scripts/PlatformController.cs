@@ -8,7 +8,7 @@ public class PlatformController : MonoBehaviour {
 	
 	[HideInInspector]
 	public int platform_id;
-	public static int platformsPerLevel = 20;
+	public static int platformsPerLevel = 12;
 	[HideInInspector]
 	public static int total_platform_id = 0;
 	public static int oldest_platform_id = 1;
