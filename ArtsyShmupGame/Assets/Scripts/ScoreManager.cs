@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour {
-	private int score = 0;
+	private static int SCORE = 0;
 	private Text scoreText;
 
 	// Use this for initialization
@@ -13,10 +13,15 @@ public class ScoreManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		scoreText.text = "Score: " + score;
+		scoreText.text = "Score: " + SCORE;
 	}
 
 	public void AddScore(int amount){
-		this.score += amount;
+		SCORE += amount;
+	}
+
+	public void Reset()
+	{
+		SCORE = 0;
 	}
 }
