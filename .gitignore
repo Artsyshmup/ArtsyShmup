@@ -1,34 +1,36 @@
 # =============== #
 # Unity generated #
 # =============== #
-./ArtsyShmupGame/Temp/
-./ArtsyShmupGame/Library/
+ArtsyShmupGame/Temp/
+ArtsyShmupGame/Library/
+ArtsyShmupGame/Temp
+ArtsyShmupGame/Library
  
 # ===================================== #
 # Visual Studio / MonoDevelop generated #
 # ===================================== #
-./ArtsyShmupGame/ExportedObj/
-./ArtsyShmupGame/obj/
-./ArtsyShmupGame/*.svd
-./ArtsyShmupGame/*.userprefs
-./ArtsyShmupGame/*.csproj
-./ArtsyShmupGame/*.pidb
-./ArtsyShmupGame/*.suo
-./ArtsyShmupGame/*.sln
-./ArtsyShmupGame/*.user
-./ArtsyShmupGame/*.unityproj
-./ArtsyShmupGame/*.booproj
+ArtsyShmupGame/ExportedObj/
+ArtsyShmupGame/obj/
+ArtsyShmupGame/*.svd
+ArtsyShmupGame/*.userprefs
+ArtsyShmupGame/*.csproj
+ArtsyShmupGame/*.pidb
+ArtsyShmupGame/*.suo
+ArtsyShmupGame/*.sln
+ArtsyShmupGame/*.user
+ArtsyShmupGame/*.unityproj
+ArtsyShmupGame/*.booproj
  
 # ============ #
 # OS generated #
 # ============ #
-./ArtsyShmupGame/.DS_Store
-./ArtsyShmupGame/.DS_Store?
-./ArtsyShmupGame/._*
-./ArtsyShmupGame/.Spotlight-V100
-./ArtsyShmupGame/.Trashes
-./ArtsyShmupGame/ehthumbs.db
-./ArtsyShmupGame/Thumbs.db
+ArtsyShmupGame/.DS_Store
+ArtsyShmupGame/.DS_Store?
+ArtsyShmupGame/._*
+ArtsyShmupGame/.Spotlight-V100
+ArtsyShmupGame/.Trashes
+ArtsyShmupGame/ehthumbs.db
+ArtsyShmupGame/Thumbs.db
 
 
-./ArtsyShmupGame/.idea
+ArtsyShmupGame/.idea
