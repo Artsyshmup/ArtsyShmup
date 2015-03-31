@@ -6,8 +6,8 @@ public class CameraController : MonoBehaviour {
 	public float horizontalSpeed = 2f;
 	public float verticalSpeed = 2f;
 	public float smoothing = 5;
-	public float mouse_x_offset = 1f;
-	public float mouse_y_offset = 1f;
+	public float mouse_x_offset = 4f;
+	public float mouse_y_offset = 4f;
 	public Transform target;
 	private Vector3 offset;
 	private bool pointerFeature = true;
