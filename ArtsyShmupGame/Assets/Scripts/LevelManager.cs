@@ -71,7 +71,7 @@ public class LevelManager : MonoBehaviour {
 			levelPassedImage.color = new Color (141 / 255f, 151 / 255f, 255 / 255f, 0f);
 			levelPassedText.color = new Color (0f, 0f, 0f, 0f);
 			PlatformController.total_platform_id = 0;
-			Application.LoadLevel(Application.loadedLevel);
+			Application.LoadLevel("IntermediateScene");
 		}
 	}
 

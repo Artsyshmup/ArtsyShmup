@@ -23,6 +23,7 @@ public class PlayerPhysics : MonoBehaviour {
 
 	public void Move(Vector2 moveTo)
 	{
+
 		float componentY = moveTo.y;
 		float componentX = moveTo.x;
 
