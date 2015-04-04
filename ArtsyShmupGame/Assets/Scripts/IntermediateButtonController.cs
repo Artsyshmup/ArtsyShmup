@@ -6,7 +6,8 @@ using System;
 
 public class IntermediateButtonController : MonoBehaviour {
 	private StreamReader reader;
-	private static string FILE_PATH = "Assets/Scripts/TextFiles/DIALOG_1.txt";
+	private static string FILE_PATH = "Assets/Scripts/TextFiles/DIALOG_";
+	private static int NEXT_LEVEL = 2;
 	private Color panelColor = new Color(1f, 1f, 1f, 202/255f);
 	private Color textColor = new Color(0f, 0f, 0f, 1f);
 
@@ -21,7 +22,8 @@ public class IntermediateButtonController : MonoBehaviour {
 	/// </summary>
 	void Awake()
 	{
-		reader = new StreamReader(FILE_PATH);
+		reader = new StreamReader(FILE_PATH + NEXT_LEVEL + ".txt");
+		NEXT_LEVEL++;
 	}
 
 	/// <summary>

@@ -1,8 +1,0 @@
-player: Blah blah
-boss: Waa waa
-player: Blah blah blah
-boss: Waa waa waa
-player: Blah blah blah blah
-boss: Waa waa waa waa
-player: Blah?
-boss: Wa
