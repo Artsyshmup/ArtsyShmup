@@ -11,12 +11,14 @@ public abstract class EnemySpawningController : MonoBehaviour {
 	public int enemiesAlive = 0;
 	private float timer = 0f;
 	private int radius;
+	private int xOffset;
 
-	protected void setProperties(GameObject iEnemyPrefab, int iRadius)
+	protected void setProperties(GameObject iEnemyPrefab, int iRadius, int xOffset)
 	{
 		player = GameObject.Find ("Player").transform;
 		this.enemyPrefab = iEnemyPrefab;
 		this.radius = iRadius;
+		this.xOffset = xOffset;
 	}
 	
 	// Update is called once per frame
@@ -31,6 +33,7 @@ public abstract class EnemySpawningController : MonoBehaviour {
 	{
 		Vector2 spawnPosition = Random.onUnitSphere * radius; 
 		spawnPosition = spawnPosition + (Vector2)player.position;
+		spawnPosition.x += xOffset;
 		Instantiate (enemyPrefab, spawnPosition, Quaternion.identity);
 		enemiesAlive++;
 		timer = 0f;
