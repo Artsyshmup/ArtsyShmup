@@ -24,6 +24,7 @@ public class IntermediateButtonController : MonoBehaviour {
 	{
 		reader = new StreamReader(FILE_PATH + NEXT_LEVEL + ".txt");
 		NEXT_LEVEL++;
+		FireClickEvent ();
 	}
 
 	/// <summary>
