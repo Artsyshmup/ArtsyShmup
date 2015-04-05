@@ -55,6 +55,9 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		if (isAlive) {
 			float horizontal = Input.GetAxisRaw("Horizontal");
+			if(horizontal==0){
+				horizontal = (Input.GetKeyDown(KeyCode.D)) ? 1 : (Input.GetKeyDown(KeyCode.A)) ? -1 : 0;
+			}
 			if(horizontal!=0){ //User is pressing a key to move the player. Acceleration
 				if(speed<maxSpeed){
 					speed += (rigidbody2D.mass * speed) * Time.deltaTime;
@@ -79,6 +82,9 @@ public class PlayerController : MonoBehaviour {
 			if(playerPhysics.grounded){ //We'll jump
 				moveTo.y = 0;
 				float vertical = Input.GetAxisRaw("Vertical");
+				if(vertical==0){
+					vertical = (Input.GetKeyDown (KeyCode.W)) ? 1 : 0;
+				}
 				if(vertical>0){
 					moveTo.y = jumpHeight;
 				}
