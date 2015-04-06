@@ -13,7 +13,7 @@ public class PlayerShooting : MonoBehaviour {
 	LineRenderer gunLine;
 	Light gunLight;
 	float effectsDisplayTime = .2f;
-	public AudioSource playerShot;
+	AudioSource playerShot;
 
 	public Vector3 targetPoint;
 
@@ -23,6 +23,7 @@ public class PlayerShooting : MonoBehaviour {
 		gunParticles = GetComponent<ParticleSystem> ();
 		gunLine = GetComponent<LineRenderer> ();
 		gunLight = GetComponent<Light> ();
+		playerShot = GetComponent<AudioSource> ();
 		playerShot.enabled = true;
 	}
 	
