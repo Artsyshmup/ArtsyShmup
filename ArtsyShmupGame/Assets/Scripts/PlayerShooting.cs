@@ -13,6 +13,7 @@ public class PlayerShooting : MonoBehaviour {
 	LineRenderer gunLine;
 	Light gunLight;
 	float effectsDisplayTime = .2f;
+	public AudioSource playerShot;
 
 	public Vector3 targetPoint;
 
@@ -22,6 +23,7 @@ public class PlayerShooting : MonoBehaviour {
 		gunParticles = GetComponent<ParticleSystem> ();
 		gunLine = GetComponent<LineRenderer> ();
 		gunLight = GetComponent<Light> ();
+		playerShot.enabled = true;
 	}
 	
 	// Update is called once per frame
@@ -29,6 +31,7 @@ public class PlayerShooting : MonoBehaviour {
 		timer += Time.deltaTime;
 		if (Input.GetButton ("Fire1") && timer >= timeBetweenBullets && Time.timeScale != 0) {
 			Shoot();
+			playerShot.Play ();
 		}
 		if (timer >= timeBetweenBullets * effectsDisplayTime) {
 			DisableEffects();
