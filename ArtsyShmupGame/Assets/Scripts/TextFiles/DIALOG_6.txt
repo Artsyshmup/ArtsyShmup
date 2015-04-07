@@ -1,8 +1,0 @@
-player: When you're alone and life is making you lonely
-boss: You can always go downtown
-player: When you've got worries, all the noise and the hurry
-boss: Seems to help, I know, downtown
-player: Just listen to the music of the traffic in the city
-boss: Linger on the sidewalk where the neon signs are pretty
-player: How can you lose?
-boss: The lights are much brighter there

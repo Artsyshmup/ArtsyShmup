@@ -1,0 +1,8 @@
+player: Do you believe in life after love 
+boss: I can feel something inside me say 
+player:I really don't think you're strong enough
+boss: Now
+player: Do you believe in life after love 
+boss: I can feel something inside me say 
+player: I really don't think you're strong enough
+boss: Now

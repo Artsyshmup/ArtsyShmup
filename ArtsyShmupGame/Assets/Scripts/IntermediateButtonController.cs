@@ -5,8 +5,9 @@ using System.IO;
 using System;
 
 public class IntermediateButtonController : MonoBehaviour {
-	private StreamReader reader;
-	private static string FILE_PATH = "Assets/Scripts/TextFiles/DIALOG_";
+	private string[] lines;
+	private int lineIndex = 0;
+	private static string FILE_PATH = "DIALOG_";
 	private static int NEXT_LEVEL = 2;
 	private Color panelColor = new Color(1f, 1f, 1f, 202/255f);
 	private Color textColor = new Color(0f, 0f, 0f, 1f);
@@ -22,7 +23,8 @@ public class IntermediateButtonController : MonoBehaviour {
 	/// </summary>
 	void Awake()
 	{
-		reader = new StreamReader(FILE_PATH + NEXT_LEVEL + ".txt");
+		TextAsset data = Resources.Load (FILE_PATH + NEXT_LEVEL) as TextAsset;
+		lines = data.text.Split("\n"[0]);
 		NEXT_LEVEL++;
 		FireClickEvent ();
 	}
@@ -33,12 +35,11 @@ public class IntermediateButtonController : MonoBehaviour {
 	/// </summary>
 	public void FireClickEvent()
 	{
-		if (!reader.EndOfStream) { //Still more dialog to display
-			string rawLine = reader.ReadLine();
+		if (lineIndex<lines.Length) { //Still more dialog to display
+			string rawLine = lines[lineIndex++];
 			string[] parts = rawLine.Split(new Char[]{':'});
 			displayDialog(parts[0], parts[1]);
 		} else { // No more dialog, so we load the next level
-			reader.Close();
 			Application.LoadLevel("SceneLevel1");
 		}
 	}
@@ -59,6 +60,7 @@ public class IntermediateButtonController : MonoBehaviour {
 		otherPanel.color = new Color (0f, 0f, 0f, 0f);
 		currentPanel.color = panelColor;
 		currentText.color = textColor;
+
 		currentText.text = dialog;
 	}
 }

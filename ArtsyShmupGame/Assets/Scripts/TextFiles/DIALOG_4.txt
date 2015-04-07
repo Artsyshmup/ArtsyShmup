@@ -1,8 +1,0 @@
-player: If I were a rich man
-boss: Yubby dibby dibby dibby dibby dibby dibby dum.
-player: All day long I'd biddy biddy bum.
-boss: If I were a wealthy man.
-player: I wouldn't have to work hard.
-boss: Ya ha deedle deedle, bubba bubba deedle deedle dum.
-player: If I were a biddy biddy rich
-boss: Idle-diddle-daidle-daidle man.

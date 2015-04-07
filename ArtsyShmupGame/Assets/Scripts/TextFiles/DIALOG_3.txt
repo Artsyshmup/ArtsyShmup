@@ -1,8 +1,0 @@
-player: Harry Truman, Doris Day, Red China, Johnnie Ray
-boss: South Pacific, Walter Winchell, Joe DiMaggio
-player: Joe McCarthy, Richard Nixon, Studebaker, Television
-boss: North Korea, South Korea, Marilyn Monroe
-player: Rosenbergs, H-Bomb, Sugar Ray, Panmunjom
-boss: Brando, The King And I, and The Catcher In The Rye
-player: Eisenhower, Vaccine, England's got a new queen
-boss: Marciano, Liberace, Santayana goodbye
