@@ -82,8 +82,24 @@
 		<hr/>
 		<article>
 			<h3>ArtsyShmup version 3 (04/07/2015)</h3>
-			<p><b>Improvements over the previous version</b>: </p>
-			
+			<p><b>Improvements over the previous version</b>: In the previous version the levels were too long, so now they are shorter. 
+			Each level now contains 12 platforms in each direction.</p>
+			<p>Previously, the camera used to move along with the player and also a little more depending on the mouse position. This made the game too shaky, so now there is 
+			a bigger offset surrounding the main character. If the player wants to move the camera a little bit further with the mouse, he/she will have to move the mouse further 
+			away from the player.</p>
+			<p>Shooting enemies used to stay alive even if they were off-screen, so they would just keep shooting at the player. Now when shooting enemies go off-screen, they are 
+			automatically destroyed.</p>
+			<p>Because of the acceleration, the player could go through the first level without shooting any normal (green) enemies. To avoid this situation, there will be up to 6 
+			normal enemies at any time (there's a spawning delay, so they won't appear all at the same time). Moreover, normal enemies are now faster and they are instantiated 
+			closer to the player, so players will always have enemies following them closely.</p>
+			<p>New keys to move around: Added functionality to the keys A, D and W so the gaming experience is more comfortable. Key 'A' will make the player go backwards. Key 'D' will make the player move forward. Key 'W' will make the player jump.</p>
+			<p>Dialog: Added intermediate scene where dialog will take place between the player and a boss. Between each level and the next one, this scene will be loaded and 
+			a different dialog will be displayed. This is a way to integrate the story. We still don't have the concrete dialog, so the dialog we have so far is just a sample text.
+			After the dialog ends, the next level is automatically loaded.</p>
+			<p>Sound: Added laser sound effects that will be played when the player shoots. Added a different sound effect when the shooting enemies shoot at the player. 
+			Another sound effect will be played when the player dies.</p>
+			<p>Added menu screen: When the game is loaded, a scene with infinite scrolling background and background music will be displayed with the title of the game and a text 
+			message prompting the user to press the space key to start playing the game.</p>
 			<p>ArtsyShmup v3 can be accessed <a href="http://cs.unc.edu/~raulestr/gamedev/ArtsyShmup/ArtsyShmup_v3/" target="_blank">HERE</a></p>
 		</article>
     </div>
