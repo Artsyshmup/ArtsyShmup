@@ -13,7 +13,7 @@ public class EnemyShooting : MonoBehaviour {
 	LineRenderer gunLine;
 	Light gunLight;
 	float effectsDisplayTime = .2f;
-
+	AudioSource enemyShot;
 	private Vector3 targetPoint;
 	
 	// Use this for initialization
@@ -22,6 +22,8 @@ public class EnemyShooting : MonoBehaviour {
 		gunParticles = GetComponent<ParticleSystem> ();
 		gunLine = GetComponent<LineRenderer> ();
 		gunLight = GetComponent<Light> ();
+		enemyShot = GetComponent<AudioSource> ();
+		enemyShot.enabled = true;
 	}
 	
 	/// Update is called once per frame
@@ -29,6 +31,7 @@ public class EnemyShooting : MonoBehaviour {
 		timer += Time.deltaTime;
 		if (timer >= timeBetweenBullets && Time.timeScale != 0) {
 			targetPoint = GameObject.Find("Player").transform.position;
+			enemyShot.Play ();
 			Shoot();
 		}
 		if (timer >= timeBetweenBullets * effectsDisplayTime) {

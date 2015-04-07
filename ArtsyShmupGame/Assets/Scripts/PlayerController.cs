@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour {
 	private Image gameOverImage;
 	private Text gameOverText;
 	private Text replayText;
+	public AudioSource playerDeathSound;
 
 	[HideInInspector]
 	public List<GameObject> pickups = new List<GameObject>();
@@ -49,6 +50,7 @@ public class PlayerController : MonoBehaviour {
 		gameOverImage = GameObject.Find ("GameOverImage").GetComponent<Image>();
 		gameOverText = GameObject.Find ("GameOverText").GetComponent<Text>();
 		replayText = GameObject.Find ("ReplayText").GetComponent<Text> ();
+		playerDeathSound.enabled = true;
 	}
 	
 	// Update is called once per frame
@@ -125,6 +127,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		shooting.enabled = false;
 		isAlive = false;
+		playerDeathSound.Play ();
 
 		gameOverImage.color = new Color(116/255f, 116/255f, 116/255f, 1);
 		gameOverText.color = new Color (0, 0, 0, 1);
