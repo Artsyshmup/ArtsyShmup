@@ -33,7 +33,14 @@ public abstract class EnemySpawningController : MonoBehaviour {
 	{
 		Vector2 spawnPosition = Random.onUnitSphere * radius; 
 		spawnPosition = spawnPosition + (Vector2)player.position;
-		spawnPosition.x += xOffset;
+		GameObject[] backwards = GameObject.FindGameObjectsWithTag ("PlatformBackward");
+		if (backwards.Length == 0) {
+			spawnPosition.x += xOffset;
+			Debug.Log("FORWARD");
+		} else {
+			spawnPosition.x -= xOffset;
+			Debug.Log ("BACKWARDS");
+		}
 		Instantiate (enemyPrefab, spawnPosition, Quaternion.identity);
 		enemiesAlive++;
 		timer = 0f;
