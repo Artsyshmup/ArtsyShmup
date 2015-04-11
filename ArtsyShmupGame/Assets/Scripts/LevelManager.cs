@@ -52,6 +52,7 @@ public class LevelManager : MonoBehaviour {
 	}
 
 	private IEnumerator WinLevel(){
+		GameObject.Find ("Player").GetComponent<PlayerController> ().increaseInitialHealth();
 		levelPassedImage.color = new Color (141 / 255f, 151 / 255f, 255 / 255f, 1f);
 		if (LEVEL == 6) { //Player won the game
 			levelPassedText.text = "You've completed the game";

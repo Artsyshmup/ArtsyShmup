@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour {
 	public float initialSpeed = 4;
 	public float maxSpeed = 10;
 	public float jumpHeight = 70;
+	private static int INITIAL_HEALTH = 3;
 	public static int HEALTH = 3;
 	public Text healthText;
 	public Image damageImage;
@@ -137,6 +138,13 @@ public class PlayerController : MonoBehaviour {
 
 	public void ResetHealth()
 	{
-		HEALTH = 3;
+		HEALTH = INITIAL_HEALTH;
+	}
+
+	public void increaseInitialHealth()
+	{
+		INITIAL_HEALTH++;
+		HEALTH++;
+		healthText.text = "" + HEALTH;
 	}
 }
