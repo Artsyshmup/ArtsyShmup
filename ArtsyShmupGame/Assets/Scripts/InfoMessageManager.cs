@@ -3,7 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class InfoMessageManager : MonoBehaviour {
-	private float messageDelay = 2.5f;
+	private float messageDelay = 3.5f;
 
 	public void displayMessage()
 	{

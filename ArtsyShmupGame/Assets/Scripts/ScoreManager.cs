@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour {
 	private static int SCORE = 0;
+	private static int INITIAL_SCORE = 0;
 	private Text scoreText;
 
 	// Use this for initialization
@@ -22,6 +23,11 @@ public class ScoreManager : MonoBehaviour {
 
 	public void Reset()
 	{
-		SCORE = 0;
+		SCORE = INITIAL_SCORE;
+	}
+
+	public void CommitScore()
+	{
+		INITIAL_SCORE = SCORE;
 	}
 }
