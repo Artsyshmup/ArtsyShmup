@@ -6,7 +6,7 @@ public class PlatformController : MonoBehaviour {
 	public GameObject oldTrigger;
 	public int destroyDelay = 3;
 	
-	[HideInInspector]
+	//[HideInInspector]
 	public int platform_id;
 	public static int platformsPerLevel = 12;
 	[HideInInspector]
@@ -17,7 +17,6 @@ public class PlatformController : MonoBehaviour {
 	void Awake () {
 		this.platform_id = PlatformController.total_platform_id + 1;
 		PlatformController.total_platform_id = this.platform_id;
-
 		gameObject.name = "Platform" + this.platform_id;
 
 		if (this.platform_id>5 && 
