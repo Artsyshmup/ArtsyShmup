@@ -102,6 +102,23 @@
 			message prompting the user to press the space key to start playing the game.</p>
 			<p>ArtsyShmup v3 can be accessed <a href="http://cs.unc.edu/~raulestr/gamedev/ArtsyShmup/ArtsyShmup_v3/" target="_blank">HERE</a></p>
 		</article>
+		<hr/>
+		<article>
+			<h3>ArtsyShmup version 4 (04/13/2015)</h3>
+			<p><b>Improvements over the previous version</b>: The initial number of lives the player has increases every time players go to the next level. (3 lives in level 1, 4 lives 
+			in level 2, and so on). When the player goes from one level to the next one he/she will keep his/her lives and score, but the lives will be reset if players die, and the initial 
+			number is what changes.</p>
+			<p>The score is 'committed' when the players go to the next level. Before if the players lose then the score is reset to 0. Now, when the players go to the next level their score 
+			will be set as the initial score, so if they lose in a given level they will reset their score to their initial one (score they had when they won the previous level).</p>
+			<p>The game will spawn enemies a little ahead of the player so that they don't go offscreen that often.</p>
+			<p>New enemy: starting in level 3, the game will start spawning a new phantom enemy. This enemy is large and doesn't attack the player, but the player won't be able to go through 
+			it or jump and avoid it. The player will be forced to stop and attack this enemy until it's destroyed. The enemy will be spawned randomly on top of a platform</p>
+			<p>Added a boss on the second to last platform in each level. The boss is bigger than normal enemies and shoots waves of bullets. The bullets will harm the player but they are 
+			slower, so the player can avoid being hit by them. The player needs to destroy the boss in every level.</p>
+			<p>Both the new enemy and the boss have a different number of lives and are worth different amounts of points. Moreover, the shooting enemy now shoots these bullets instead of 
+			using line renderer since line renderer was being problematic and wasn't working as we expected sometimes.</p>
+			<p>ArtsyShmup v4 can be accessed <a href="http://cs.unc.edu/~raulestr/gamedev/ArtsyShmup/ArtsyShmup_v4/" target="_blank">HERE</a></p>
+		</article>
     </div>
   </div>
       <hr>
