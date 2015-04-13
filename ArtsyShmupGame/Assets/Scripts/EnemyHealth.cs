@@ -29,7 +29,9 @@ public class EnemyHealth : MonoBehaviour {
 		case "ShootingEnemy": spawnController = Camera.main.GetComponent<ShootingEnemySpawner> (); break;
 		}
 		Destroy (gameObject);
-		spawnController.enemiesAlive--;
+		if (spawnController != null) {
+			spawnController.enemiesAlive--;
+		}
 		scoreManager.AddScore (this.enemyValue);
 	}
 }

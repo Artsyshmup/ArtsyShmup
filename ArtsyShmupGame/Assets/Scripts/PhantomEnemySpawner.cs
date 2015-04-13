@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine;
+//using System.Random;
 
 public class PhantomEnemySpawner : EnemySpawningController {
 
@@ -9,25 +10,39 @@ public class PhantomEnemySpawner : EnemySpawningController {
 	//and if so create a phantom on the platform
 	
 	public GameObject phantomEnemyPrefab;
-	private List<GameObject> platforms;
-	public int normalRadius = 3;
-	public int normalXOffset = 15;
-	public int spawnPhantomEvery = 5; //spawn a phantom on every ith platform
-	
+	//public int normalRadius = 3;
+	//public int normalXOffset = 15;
+	public int lowSpawnBoundary = 3;
+	public int highSpawnBoundary = 7;
+	public int spawnNextPhantom; //spawn a phantom on every ith platform
+	public int platformIdLastPhantom; //platform id of the last platform on which a phantom was spawned
+
 	void Awake()
 	{
-		GameObject.Find
-		GameObject.Find ("Platform");
-		base.setProperties(phantomEnemyPrefab, normalRadius, normalXOffset);
+		spawnNextPhantom = randomInt ();
+		//base.setProperties(phantomEnemyPrefab, normalRadius, normalXOffset);
 	}
 	
 	void Update() {
-		if (enemiesAlive < numberOfEnemies && timer >= spawnDelay) { //Spawn enemy
-			SpawnEnemy();
+
+		if ((PlatformController.total_platform_id % spawnNextPhantom == 0) && (PlatformController.total_platform_id != platformIdLastPhantom)) {
+			SpawnEnemy(PlatformController.total_platform_id);
+			platformIdLastPhantom = PlatformController.total_platform_id;
+			spawnNextPhantom = randomInt ();
+			Debug.Log ("test");
 		}
 	}
 	
-	void SpawnEnemy() {
-		
+	void SpawnEnemy(int platformId) {
+		GameObject platform = GameObject.Find ("Platform" + platformId);
+		Vector2 spawnPos = platform.transform.position;
+		spawnPos.y += 0.5f; //how to get the height of the platform
+		spawnPos.y += (phantomEnemyPrefab.collider2D.bounds.extents.y);
+		Instantiate (phantomEnemyPrefab, spawnPos, Quaternion.identity);
+	}
+
+	int randomInt() {
+		//return a random integer between 3 and 7
+		return Random.Range (lowSpawnBoundary, highSpawnBoundary);
 	}
 }
