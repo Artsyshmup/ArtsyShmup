@@ -147,4 +147,12 @@ public class PlayerController : MonoBehaviour {
 		HEALTH++;
 		healthText.text = "" + HEALTH;
 	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.tag == "Bullet") {
+			TakeDamage();
+			Destroy(other.gameObject);
+		}
+	}
 }
