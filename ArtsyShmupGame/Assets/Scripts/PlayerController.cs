@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
 	public static int HEALTH = 3;
 	public Text healthText;
 	public Image damageImage;
-	public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
+	public Color flashColour = new Color(1f, 0f, 0f, 1f);
 	private bool damaged = false;
 	private float camRayLength = 100f;
 	public float flashSpeed = 5f;
