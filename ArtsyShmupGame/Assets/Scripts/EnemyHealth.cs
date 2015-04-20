@@ -7,10 +7,12 @@ public class EnemyHealth : MonoBehaviour {
 	public GameObject enemy;
 	
 	private ScoreManager scoreManager;
+	public AudioSource enemyDeathSound;
 
 	void Awake()
 	{
 		scoreManager = GameObject.Find ("Main Camera").GetComponent<ScoreManager> ();
+		enemyDeathSound.enabled = true;
 	}
 
 	public void TakeDamage()
@@ -23,6 +25,9 @@ public class EnemyHealth : MonoBehaviour {
 
 	public void Die()
 	{
+		Debug.Log ("sound should be playing");
+		enemyDeathSound.Play ();
+		enemyDeathSound.Play ();
 		EnemySpawningController spawnController = null;
 		switch (enemy.tag) {
 		case "NormalEnemy": spawnController = Camera.main.GetComponent<NormalEnemySpawner> (); break;

@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour {
 	private Text gameOverText;
 	private Text replayText;
 	public AudioSource playerDeathSound;
+	public AudioSource playerDamageSound;
+	public AudioSource playerJumpSound;
 
 	[HideInInspector]
 	public List<GameObject> pickups = new List<GameObject>();
@@ -52,6 +54,8 @@ public class PlayerController : MonoBehaviour {
 		gameOverText = GameObject.Find ("GameOverText").GetComponent<Text>();
 		replayText = GameObject.Find ("ReplayText").GetComponent<Text> ();
 		playerDeathSound.enabled = true;
+		playerDamageSound.enabled = true;
+		playerJumpSound.enabled = true;
 	}
 	
 	// Update is called once per frame
@@ -89,6 +93,7 @@ public class PlayerController : MonoBehaviour {
 					vertical = (Input.GetKeyDown (KeyCode.W)) ? 1 : 0;
 				}
 				if(vertical>0){
+					playerJumpSound.Play ();
 					moveTo.y = jumpHeight;
 				}
 			}
@@ -105,6 +110,7 @@ public class PlayerController : MonoBehaviour {
 			HEALTH--;
 			healthText.text = "" + HEALTH;
 			this.damaged = true;
+			playerDamageSound.Play ();
 			if (HEALTH == 0) { //Game Over
 				Die ();
 			}
