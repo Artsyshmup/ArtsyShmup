@@ -39,6 +39,8 @@ public class LevelManager : MonoBehaviour {
 		} else {
 			GetComponent<PhantomEnemySpawner>().enabled = false;
 		}
+
+		AdjustEnemyParameters ();
 	}
 
 	public void FinishLevel()
@@ -100,6 +102,25 @@ public class LevelManager : MonoBehaviour {
 				GameObject.Find("Player").GetComponent<PlayerController>().ResetHealth();
 				Application.LoadLevel(Application.loadedLevel);
 			}
+		}
+	}
+
+	/// <summary>
+	/// Adjusts the enemy parameters (number of enemies, spawn delay and speed) in the levels 4-6
+	/// </summary>
+	private void AdjustEnemyParameters()
+	{
+		if (LEVEL > 3) {
+			NormalEnemySpawner normalEnemySpawner = Camera.main.GetComponent<NormalEnemySpawner>();
+			normalEnemySpawner.numberOfEnemies = normalEnemySpawner.numberOfEnemies + 1;
+			normalEnemySpawner.spawnDelay = normalEnemySpawner.spawnDelay - 1;
+
+			ShootingEnemySpawner shootingEnemySpawner = Camera.main.GetComponent<ShootingEnemySpawner>();
+			shootingEnemySpawner.numberOfEnemies = shootingEnemySpawner.numberOfEnemies + 1;
+			shootingEnemySpawner.spawnDelay = shootingEnemySpawner.spawnDelay - 2;
+
+			normalEnemySpawner.normalEnemyPrefab.GetComponent<EnemyController>().speed = 
+				normalEnemySpawner.normalEnemyPrefab.GetComponent<EnemyController>().speed + 1;
 		}
 	}
 }
