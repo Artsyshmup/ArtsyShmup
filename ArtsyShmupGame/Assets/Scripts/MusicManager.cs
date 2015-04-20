@@ -28,21 +28,27 @@ public class MusicManager : MonoBehaviour {
 					case 1:
 						Level1Music.enabled = true;
 						Level1Music.Play ();
+						break;
 					case 2:
 						Level2Music.enabled = true;
 						Level2Music.Play ();
+						break;
 					case 3:
 						Level3Music.enabled = true;
 						Level3Music.Play ();
+						break;
 					case 4:
 						Level4Music.enabled = true;
 						Level4Music.Play ();
+						break;
 					case 5:
 						Level5Music.enabled = true;
 						Level5Music.Play ();
+						break;
 					case 6:
 						Level6Music.enabled = true;
 						Level6Music.Play ();
+						break;
 				}
 			}
 	}
