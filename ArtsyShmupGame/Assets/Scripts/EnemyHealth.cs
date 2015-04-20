@@ -25,7 +25,7 @@ public class EnemyHealth : MonoBehaviour {
 
 	public void Die()
 	{
-		Debug.Log ("sound should be playing");
+		//Debug.Log ("sound should be playing");
 		enemyDeathSound.Play ();
 		enemyDeathSound.Play ();
 		EnemySpawningController spawnController = null;
