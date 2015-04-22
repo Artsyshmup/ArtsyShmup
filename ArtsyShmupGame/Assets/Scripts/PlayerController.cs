@@ -31,6 +31,9 @@ public class PlayerController : MonoBehaviour {
 	public AudioSource playerDamageSound;
 	public AudioSource playerJumpSound;
 
+	public Animator animator;
+	private bool isFacingRight = true;
+
 	[HideInInspector]
 	public List<GameObject> pickups = new List<GameObject>();
 	
@@ -66,15 +69,23 @@ public class PlayerController : MonoBehaviour {
 				horizontal = (Input.GetKeyDown(KeyCode.D)) ? 1 : (Input.GetKeyDown(KeyCode.A)) ? -1 : 0;
 			}
 			if(horizontal!=0){ //User is pressing a key to move the player. Acceleration
+				animator.SetBool("isMoving", true);
 				if(speed<maxSpeed){
 					speed += (rigidbody2D.mass * speed) * Time.deltaTime;
 				} else {
 					speed = maxSpeed;
 				}
 			} else {
+				animator.SetBool("isMoving", false);
 				speed = initialSpeed;
 			}
 			moveTo.x = horizontal * speed;
+
+			if(horizontal >= 0){
+				transform.localScale = new Vector3(1, 1, 1);
+			}else{
+				transform.localScale = new Vector3(-1, 1, 1);
+			}
 			
 			if(damaged)
 			{
@@ -87,6 +98,7 @@ public class PlayerController : MonoBehaviour {
 			damaged = false;
 			
 			if(playerPhysics.grounded){ //We'll jump
+				animator.SetBool("isGrounded", true);
 				moveTo.y = 0;
 				float vertical = Input.GetAxisRaw("Vertical");
 				if(vertical==0){
@@ -95,6 +107,7 @@ public class PlayerController : MonoBehaviour {
 				if(vertical>0){
 					playerJumpSound.Play ();
 					moveTo.y = jumpHeight;
+					animator.SetBool("isGrounded", false);
 				}
 			}
 			moveTo.y -= this.gravity * Time.deltaTime; //We add the effects of gravity
