@@ -7,11 +7,13 @@ public class EnemyShooting : MonoBehaviour {
 
 	float timer;
 	AudioSource enemyShot;
+	GameObject player;
 
 	// Use this for initialization
 	void Awake () {
 		enemyShot = GetComponent<AudioSource> ();
 		enemyShot.enabled = true;
+		player = GameObject.Find ("Player");
 	}
 	
 	/// Update is called once per frame
@@ -20,6 +22,12 @@ public class EnemyShooting : MonoBehaviour {
 		if (timer >= timeBetweenBullets && Time.timeScale != 0) {
 			enemyShot.Play ();
 			Shoot();
+		}
+		Vector3 difference = player.transform.position - transform.position;
+		if(difference.x > 0){
+			transform.parent.transform.localScale = new Vector3(-1, 1, 1);
+		}else{
+			transform.parent.transform.localScale  = new Vector3(1, 1, 1);
 		}
 	}
 	
