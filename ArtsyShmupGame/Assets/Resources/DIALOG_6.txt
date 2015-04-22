@@ -1,8 +1,10 @@
-player: When you're alone and life is making you lonely
-boss: You can always go downtown
-player: When you've got worries, all the noise and the hurry
-boss: Seems to help, I know, downtown
-player: Just listen to the music of the traffic in the city
-boss: Linger on the sidewalk where the neon signs are pretty
-player: How can you lose?
-boss: The lights are much brighter there
+player: I don't even remember what I came here to do.
+boss: "Oh you who cannot move! Let your limbs not suffer corruption."
+player: I can barely even hear the priest speak.
+boss: "Oh children of a Smiling God, you shall reign in triumph."
+player: She always wanted me to pay attention to the sermon.
+boss: "May your bones be knit together forever and may nothing break them apart"
+player: Why must anything die? Can't it just go on forever?
+boss: "That which is an abomination unto me, let me not eat!"
+player: I'll never do that to anyone. I won't die and then I won't make anyone sad.
+boss: "If the deceased know this chapter, she shall never consume the filth of the underworld."

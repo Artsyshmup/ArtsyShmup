@@ -1,8 +1,12 @@
-player: If I were a rich man
-boss: Yubby dibby dibby dibby dibby dibby dibby dum.
-player: All day long I'd biddy biddy bum.
-boss: If I were a wealthy man.
-player: I wouldn't have to work hard.
-boss: Ya ha deedle deedle, bubba bubba deedle deedle dum.
-player: If I were a biddy biddy rich
-boss: Idle-diddle-daidle-daidle man.
+player: This is all your fault.
+boss: Blame me if you will, but if you want to see her again, I need more time and more death.
+player: I should be hurting you, not them.
+boss: Let me ask you a question:
+player: Only if I don't have to answer.
+boss: Why did you let me in the first place?
+player: ......
+boss: None of this is helping. She will stay in my tomb for eternity and you know I can't really help.
+player: ...........
+boss: So why do you keep doing what I ask?
+player: ....because....it's easier this way.....
+boss: Then keep killing.

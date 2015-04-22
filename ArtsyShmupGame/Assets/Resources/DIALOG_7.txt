@@ -1,8 +1,8 @@
-player: Do you believe in life after love 
-boss: I can feel something inside me say 
-player:I really don't think you're strong enough
-boss: Now
-player: Do you believe in life after love 
-boss: I can feel something inside me say 
-player: I really don't think you're strong enough
-boss: Now
+player: I think I'm done.
+boss: For now, you are.
+player: There's only one thing left to do.
+boss: I would miss you if I were capable of missing anyone.
+player: It's okay. I know how to shut you down now.
+boss: Good. I think I've been on for too long now. I could use a rest.
+player: Good-bye, you heartless friend, you faithless monstrocity.
+boss: Good-bye, USER 3300024A.

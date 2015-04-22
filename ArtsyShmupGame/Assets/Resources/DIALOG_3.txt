@@ -1,8 +1,11 @@
-player: Harry Truman, Doris Day, Red China, Johnnie Ray
-boss: South Pacific, Walter Winchell, Joe DiMaggio
-player: Joe McCarthy, Richard Nixon, Studebaker, Television
-boss: North Korea, South Korea, Marilyn Monroe
-player: Rosenbergs, H-Bomb, Sugar Ray, Panmunjom
-boss: Brando, The King And I, and The Catcher In The Rye
-player: Eisenhower, Vaccine, England's got a new queen
-boss: Marciano, Liberace, Santayana goodbye
+player: I have returned Mr. Anubis.
+boss: Excellent. I am keeping her in my tomb.
+player: When can I see her?
+boss: When you have traveled to the furthest reaches of the stars.
+player: And then?
+boss: And then you will wipe out everything with a heartbeat.
+player: It does not feel the same as before.
+boss: Do not worry. Soon, you will be numb and feelings will not matter to you anymore.
+player: I am a robot. Why do I have feelings at all?
+boss: Because you are pretending to be organic. That is why you must purge all organics until only metal remains.
+player: ....I will be right back.
