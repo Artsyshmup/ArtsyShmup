@@ -57,7 +57,7 @@ public class TriggerPlatformCollider : MonoBehaviour {
 				}
 				else if (parent_id == 2*PlatformController.platformsPerLevel - 2){ //We need to instantiate the boss
 					Vector3 position = newPlatform.transform.position;
-					position.y += 1.25f;
+					position.y += 1.5f;
 					Instantiate (boss, position, Quaternion.identity);
 				}
 				else if (parent_id == 2*PlatformController.platformsPerLevel - 1){ 
