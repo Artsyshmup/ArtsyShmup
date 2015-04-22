@@ -22,6 +22,11 @@ public class EnemyController : MonoBehaviour {
 
 		if (Vector3.Distance (transform.position, player.transform.position)>1) {
 			Vector3 moveTo = player.position - transform.position;
+			if(moveTo.x > 0){
+				transform.localScale = new Vector3(-1, 1, 1);
+			}else{
+				transform.localScale = new Vector3(1, 1, 1);
+			}
 			transform.position += moveTo * speed * Time.deltaTime;
 		}
 
