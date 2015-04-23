@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour {
 	public static LevelManager instance = null;
-	private static int LEVEL = 3;
+	private static int LEVEL = 1;
 	[HideInInspector]
 	public bool gameOver = false;
 	public float messageDelay = 3f;
