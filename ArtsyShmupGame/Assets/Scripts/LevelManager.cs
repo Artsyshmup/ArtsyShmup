@@ -31,8 +31,10 @@ public class LevelManager : MonoBehaviour {
 
 		if (LEVEL > 1) {
 			GetComponent<ShootingEnemySpawner>().enabled = true;
+			GetComponent<GameplayIntro>().enabled = false;
 		} else {
 			GetComponent<ShootingEnemySpawner>().enabled = false;
+			GetComponent<GameplayIntro>().enabled = true;
 		}
 		if (LEVEL > 2) {
 			GetComponent<PhantomEnemySpawner>().enabled = true;
