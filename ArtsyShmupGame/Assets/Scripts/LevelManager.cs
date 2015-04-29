@@ -29,6 +29,9 @@ public class LevelManager : MonoBehaviour {
 		}
 		gameOver = false;
 
+		if (LEVEL > 6) {
+			StartCoroutine("WinLevel");
+		}
 		if (LEVEL > 1) {
 			GetComponent<ShootingEnemySpawner>().enabled = true;
 			GetComponent<GameplayIntro>().enabled = false;
@@ -64,7 +67,7 @@ public class LevelManager : MonoBehaviour {
 		GameObject.Find ("Player").GetComponent<PlayerController> ().increaseInitialHealth();
 		Camera.main.GetComponent<ScoreManager> ().CommitScore ();
 		levelPassedImage.color = new Color (141 / 255f, 151 / 255f, 255 / 255f, 1f);
-		if (LEVEL == 6) { //Player won the game
+		if (LEVEL == 7) { //Player won the game
 			levelPassedText.text = "You've completed the game";
 		} else { //Passed the current level, but still hasn't won the game
 			levelPassedText.text = "You've passed level " + LevelManager.LEVEL;
@@ -76,7 +79,7 @@ public class LevelManager : MonoBehaviour {
 		{
 			yield return 0;
 		}
-		if (LEVEL != 6) {
+		if (LEVEL != 7) {
 			Time.timeScale = 1;
 			LEVEL = LEVEL + 1;
 			levelPassedImage.color = new Color (141 / 255f, 151 / 255f, 255 / 255f, 0f);

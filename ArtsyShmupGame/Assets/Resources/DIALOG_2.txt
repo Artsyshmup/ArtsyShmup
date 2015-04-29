@@ -1,7 +1,7 @@
 player: ...
 boss: Ah, you have come.
 player: Where am I?
-boss: You know excacly where.
+boss: You know exactly where.
 player: ...
 boss: I know you did not come to ask questions.
 player: I miss her.
